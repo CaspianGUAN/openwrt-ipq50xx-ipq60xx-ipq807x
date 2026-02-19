@@ -82,6 +82,7 @@ jobs:
             $(call Device/UbiFit)
             DEVICE_VENDOR := Xunison
             DEVICE_MODEL := D50-5G
+            DEVICE_DTS := ipq5018-xunison-d50-5g
             BLOCKSIZE := 128k
             PAGESIZE := 2048
             KERNEL_SIZE := 8192k
