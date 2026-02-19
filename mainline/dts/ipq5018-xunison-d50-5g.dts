@@ -79,20 +79,18 @@
 
 		wifi-2g {
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_WLAN;
-			function-enumerator = <2>;
+			function = LED_FUNCTION_WLAN_2GHZ;
 			gpios = <&tlmm 30 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
-			linux,default-trigger = "phy0tpt";
+			linux,default-trigger = "phy0radio";
 		};
 
 		wifi-5g {
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_WLAN;
-			function-enumerator = <5>;
+			function = LED_FUNCTION_WLAN_5GHZ;
 			gpios = <&tlmm 35 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
-			linux,default-trigger = "phy1tpt";
+			linux,default-trigger = "phy1radio";
 		};
 
 		lte-green {
@@ -111,14 +109,14 @@
 
 		mesh-green {
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_CONNECTED;
+			function = LED_FUNCTION_INDICATOR;
 			gpios = <&tlmm 27 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
 		};
 
 		mesh-red {
 			color = <LED_COLOR_ID_RED>;
-			function = LED_FUNCTION_CONNECTED;
+			function = LED_FUNCTION_INDICATOR;
 			gpios = <&tlmm 28 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
 		};

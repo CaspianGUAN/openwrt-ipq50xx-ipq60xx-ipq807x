@@ -162,12 +162,17 @@ jobs:
         if: steps.cache-toolchain.outputs.cache-hit != 'true'
         run: |
           cd openwrt
-          make toolchain/compile -j$(nproc) V=s 2>&1 | tail -5
+          set -o pipefail
+          make toolchain/compile -j$(nproc) 2>&1 | tail -5
 
       - name: Build firmware
         run: |
           cd openwrt
-          make -j$(nproc) 2>&1 | tail -30 || make -j1 V=s 2>&1 | tail -100
+          set -o pipefail
+          make -j$(nproc) 2>&1 | tail -30 || {
+            echo "=== Parallel build failed, running verbose ==="
+            make -j1 V=s 2>&1 | tail -200
+          }
 
       - name: Show output files
         if: always()
